@@ -60,7 +60,7 @@ for (i in 1:(ncol(fdr_results)/2)) {
   #overwrite column data
   fdr_results[,2*i] <- p.adjust(fdr_results[,2*i], method = "fdr")
   #Append info to vectors
-  clusters <- append(clusters, paste0("batch_", substr(colnames(fdr_results)[2*i], 1, gregexpr(pattern ='_', colnames(fdr_results)[2*i])[[1]][1] - 1)))
+  clusters <- append(clusters, paste0("batch_", substr(colnames(fdr_results)[2*i], 2, gregexpr(pattern ='_', colnames(fdr_results)[2*i])[[1]][1] - 1)))
   sig_results <- append(sig_results, sum(fdr_results[,2*i] < alpha))
 }
 

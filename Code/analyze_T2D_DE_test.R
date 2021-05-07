@@ -42,7 +42,7 @@ for (i in 1:(ncol(fdr_results)/2)) {
 }
 
 #Cbind vectors and export table
-export_table <- cbind.data.frame(cluster=clusters, DE_genes=sig_results, Pct_DE=sig_results/nrow(fdr_results))
+export_table <- cbind.data.frame(cell_type=clusters, DE_genes=sig_results, Pct_DE=sig_results/nrow(fdr_results))
 write.table(export_table, file = paste0(out_dir, "T2D_DE_cell_type_Genes.txt"), sep = "\t", quote = FALSE, col.names = TRUE, row.names = FALSE)
 
 ##########################Clusters##################################

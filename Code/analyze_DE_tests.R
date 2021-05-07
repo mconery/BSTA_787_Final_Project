@@ -1,5 +1,5 @@
 #This script analyzes the results of the iterated DE tests.  It exports a histogram comparing the number of DE genes for 
-#each iteration of the ordered testing method.  Assumes the output files from the DE tests are al stored in the input directory.  
+#each iteration of the ordered testing method.  Assumes the output files from the DE tests are all stored in the input directory.  
 
 # 0) Read in Needed Arguments from Command ====
 
@@ -65,6 +65,7 @@ ggplot(sig_results, aes(x=num_sig, fill=correction_method)) +
   geom_histogram(position = "identity", alpha = 0.2, binwidth = 100) +
   geom_vline(data=med, aes(xintercept=grp.median, color=correction_method), linetype="dashed") +
   theme(legend.position="bottom", legend.title = element_blank()) + 
-  xlab("DE Genes per Iteration") + ylab("Number of Iterations")
+  xlab("DE Genes per Iteration") + ylab("Number of Iterations") + 
+  theme(panel.background = element_blank())
 dev.off()
 

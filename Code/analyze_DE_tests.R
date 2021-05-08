@@ -57,7 +57,7 @@ scvi_random_sig <-  scvi_random[,ncol(scvi_random)]
 #Make dataframe of sig_results
 sig_results = cbind.data.frame(correction_method = append(rep("scanorama", length(scanorama_order_sig)), rep("scvi", length(scvi_order_sig))), 
                                num_sig=append(scanorama_order_sig, scvi_order_sig))
-#Calculate categorical averages
+#Calculate categorical medians
 med <- ddply(sig_results, "correction_method", summarise, grp.median=median(num_sig))
 # Add mean lines
 tiff(paste0(out_dir, "comparison_histogram.jpg"), width = 11.5, height = 8, units = 'in', res = 500)
